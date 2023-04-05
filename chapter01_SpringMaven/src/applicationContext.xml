@@ -7,4 +7,5 @@
 
 	<context:component-scan base-package="sample03"></context:component-scan>
 	<context:component-scan base-package="sample04"></context:component-scan>
+	<context:component-scan base-package="sample05"></context:component-scan>
 </beans>
