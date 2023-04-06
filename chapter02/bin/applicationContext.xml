@@ -47,4 +47,32 @@
 		<property name="eng" value="100" />
 		<property name="math" value="95" />
 	</bean>
+	
+	<!-- sample04 -->
+	<bean id="arrayList" class="java.util.ArrayList"></bean>
+	
+	<!-- main -->
+	<bean id="helloSpring" class="sample04.HelloSpring"></bean>
+	
+	<bean id="sungJukInput" class="sample04.SungJukInput" scope="prototype">
+		<property name="sungJukDTO2" ref="sungJukDTO2"></property>
+		<!-- 아래의 sungJukDTO2의 주소를 가지고 온다.  -->
+		<property name="list" ref="arrayList"></property>
+		<!-- list의 주소는 arrayList가 가지고 있어서 ref는 arrayList를 가지고온다. -->
+	</bean>
+	
+	<bean id="sungJukOutput" class="sample04.SungJukOutput">
+		<property name="list" ref="arrayList"></property>
+	</bean>
+	<bean id="sungJukDTO2" class="sample04.SungJukDTO2" scope="prototype" />
+	
+	<bean id="sungJukUpdate" class="sample04.SungJukUpdate">
+		<property name="list" ref="arrayList"></property>
+	</bean>
+	
+	<bean id="sungJukDelete" class="sample04.SungJukDelete">
+		<property name="list" ref="arrayList"></property>
+	</bean>
 </beans>
+
+

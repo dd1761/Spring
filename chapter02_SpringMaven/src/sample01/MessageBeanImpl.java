@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 
-@Component
+//@Component
 public class MessageBeanImpl implements MessageBean {
 	private String fruit;
 	private int cost, qty;
