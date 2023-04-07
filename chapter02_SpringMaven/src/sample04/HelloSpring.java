@@ -4,18 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 import sample04.SungJuk;
 
+@Component
 public class HelloSpring {
 	
 	public void menu(ApplicationContext context) {
 		Scanner scan = new Scanner(System.in);
 		SungJuk sungJuk = null;
-		List<SungJukDTO2> lsit = new ArrayList<SungJukDTO2>();
-		
 		
 		while(true) {
 			System.out.println("1. 입력");

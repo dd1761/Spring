@@ -4,20 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import lombok.Setter;
 
-
+@Component
+@Scope("prototype")
 public class SungJukInput implements SungJuk {
-	@Setter
+	
+	@Autowired
 	private SungJukDTO2 sungJukDTO2 = null;
 	
-	@Setter
-	private List<SungJukDTO2> list = null; //null값을 쥐고 있다. 
+	//SungJukDTO2 타입을 찾아서 자동으로 매핑
+	@Autowired
+	@Qualifier("arrayList") //List를 자식인 arrayList로 캐스팅. 
+	private List<SungJukDTO2> list = null; //null값을 쥐고 있다.
+	//private ArrayList<SungJukDTO2> list = null; //null값을 쥐고 있다. 
 	
-	
-//	public void setList(List<SungJukDTO2> list) {
-//		this.list = list;
-//	}
 	@Override
 	public void execute() {
 		Scanner scan = new Scanner(System.in);

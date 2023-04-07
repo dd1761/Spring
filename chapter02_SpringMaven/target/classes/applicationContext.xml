@@ -8,5 +8,7 @@
 	<context:component-scan base-package="sample01" />
 	<context:component-scan base-package="sample02" />
 	<context:component-scan base-package="sample03" />
+	<context:component-scan base-package="sample04" />
 	<context:component-scan base-package="spring.conf" />
+	
 </beans>
