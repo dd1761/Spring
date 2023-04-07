@@ -11,12 +11,15 @@ public class SungJukUpdate implements SungJuk {
 	
 	@Override
 	public void execute() {
+		System.out.println();
 		Scanner scan = new Scanner(System.in);
 		System.out.print("수정할 이름을 입력해주세요 : ");
 		String name = scan.next();
 		
+		int sw = 0;
 		for(SungJukDTO2 sungJukDTO2 : list) {
 			if(sungJukDTO2.getName().equals(name)) {
+				sw = 1;
 				System.out.println(sungJukDTO2);
 				
 				System.out.print("국어점수 입력 : ");
@@ -39,10 +42,13 @@ public class SungJukUpdate implements SungJuk {
 				sungJukDTO2.setAvg(avg);
 				
 				System.out.println(name + "님의 데이터를 수정하였습니다.");
+				
+				break;
 			}
-			else {
-				System.out.println("찾고자 하는 이름이 없습니다");
-			}
+			
+		}
+		if(sw == 0) {
+			System.out.println("찾고자 하는 이름이 없습니다");
 		}
 		
 	}

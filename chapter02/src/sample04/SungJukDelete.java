@@ -18,14 +18,14 @@ public class SungJukDelete implements SungJuk {
 		String name = scan.next();
 		
 		Iterator<SungJukDTO2> it = list.iterator();	
-		while(it.hasNext()) {
+		while(it.hasNext()) { //항목이 있으면 true 없으면 false
 			SungJukDTO2 sungJukDTO2 = it.next();	
 			
 			if(sungJukDTO2.getName().equals(name)){
 				it.remove();	//it.next()가 반환하는 항목을 지운다.
 				
 				System.out.println("삭제하였습니다.");
-			}
+			}	//if
 		}	//while
 	}
 

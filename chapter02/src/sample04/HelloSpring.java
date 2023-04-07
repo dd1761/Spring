@@ -44,7 +44,8 @@ public class HelloSpring {
 				sungJuk =(SungJuk)context.getBean("sungJukDelete");
 			}
 			sungJuk.execute(); //호출
-		}
+			
+		}	//while
 		
 	} // menu()
 
