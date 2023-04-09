@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import lombok.Setter;
@@ -62,5 +63,28 @@ public class UserDAOImpl extends NamedParameterJdbcDaoSupport implements UserDAO
 		//RowMapper은 한줄의 데이터값 중 하나의 데이터들으 한개의 데이터와 매핑하여 넣어준다.
 	}
 
+	@Override
+	public void update(UserDTO userDTO) {
+		String sql = "update usertable set name=(:name), pwd=(:pwd) where id=(:id)";
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("name", userDTO.getName());
+		map.put("id", userDTO.getId());
+		map.put("pwd", userDTO.getPwd());
+		
+		getNamedParameterJdbcTemplate().update(sql, map);
+		
+	}
+
+
+	@Override
+	public void delete(String id) {
+		String sql = "delete usertable where id=(:id)";
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		getNamedParameterJdbcTemplate().update(sql, map);
+	}
+	
 }
 

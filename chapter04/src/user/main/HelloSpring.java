@@ -36,9 +36,9 @@ public class HelloSpring {
 				userService = (UserService) context.getBean("userSelectService");
 			}
 			else if(num == 3) {
-				
+				userService = (UserService) context.getBean("userUpdateService");
 			}else if(num == 4) {
-				
+				userService = (UserService) context.getBean("userDeleteService");
 			}
 			userService.execute();
 		}	//while
