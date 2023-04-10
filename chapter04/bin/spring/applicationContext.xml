@@ -43,8 +43,8 @@
 	</bean>
 	
 	<bean id="userUpdateService" class="user.service.UserUpdateService">
-		<property name="userDTO" ref="userDTO"></property>
-		<property name="userDAO" ref="userDAOImpl"></property>
+		<property name="userDTO" ref="userDTO" />
+		<property name="userDAO" ref="userDAOImpl" />
 	</bean>
 	
 	<bean id="userDeleteService" class="user.service.UserDeleteService">
