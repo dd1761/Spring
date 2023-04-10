@@ -29,7 +29,7 @@
 	</bean>
 
 	<!-- Transaction : commit 하기 전까지의 sql 명령들 -->
-	<bean id="TransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<constructor-arg ref="dataSource" />
 	</bean>
 	
