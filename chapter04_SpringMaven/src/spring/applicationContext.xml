@@ -16,10 +16,14 @@
 		<property name="password" value="${jdbc.password}" />
 	</bean> -->
 	
-	<context:component-scan base-package="user.main" />
+	<!-- <context:component-scan base-package="user.main" />
 	<context:component-scan base-package="spring" />
 	<context:component-scan base-package="user.bean" />
 	<context:component-scan base-package="user.dao" />
-	<context:component-scan base-package="user.service" />
+	<context:component-scan base-package="user.service" /> -->
+	
+	<context:component-scan base-package="user.*" />
+	
+	<context:component-scan base-package="spring.conf" />
 	
 </beans>
