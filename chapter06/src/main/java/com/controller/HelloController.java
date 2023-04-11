@@ -31,11 +31,12 @@ public class HelloController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/hello3.do", method=RequestMethod.GET)
+	@RequestMapping(value="/hello3.do", method=RequestMethod.GET , produces = "text/html; charset=UTF-8")
 	@ResponseBody
 	public String hello3() {
 		
-		return "Welcome"; //파일명 Welcome.jsp 으로 인식한다.
+//		return "Welcome"; //파일명 Welcome.jsp 으로 인식한다.
+		return "안녕하세요";
 	}
 	//스프링에서는 return타입이 String 이면 자동으로 파일명으로 인식한다.
 	//스프링은 Welcome.jsp 파일을 찾는다
