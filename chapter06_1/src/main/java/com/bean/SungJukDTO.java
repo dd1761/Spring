@@ -11,5 +11,5 @@ public class SungJukDTO {
 	private int eng;
 	private int math;
 	private int tot;
-	private int avg;
+	private double avg;
 }
