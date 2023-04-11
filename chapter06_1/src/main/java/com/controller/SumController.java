@@ -1,6 +1,9 @@
 package com.controller;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,14 +30,39 @@ public class SumController {
 //		return "sum/result";
 //	}
 	
+//	@PostMapping(value="/result.do")
+//	public ModelAndView result(@RequestParam int x, @RequestParam int y) {
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject("x", x);
+//		mav.addObject("y", y);
+//		mav.setViewName("sum/result");
+//		
+//		return mav;
+//	}
+											//데이터를 받아오는 과정에서 데이터를 못받아오면 400에러가 난다.
+//	@PostMapping(value="/result.do")		//required는 400 에러를 방지하기 위해서 사용 
+//	public ModelAndView result(@RequestParam(required = false, defaultValue = "0") String x,
+//							   @RequestParam(required = false, defaultValue = "0") String y) {
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject("x", x);
+//		mav.addObject("y", y);
+//		mav.setViewName("sum/result");
+//		
+//		return mav;
+//	}
+	
+//	@PostMapping(value="/result.do")
+//	public String result(@RequestParam Map<String, String> map, ModelMap modelMap) {
+//		modelMap.put("x", map.get("x"));
+//		modelMap.put("y", map.get("y"));
+//		return "sum/result";
+//	}
+	
 	@PostMapping(value="/result.do")
-	public ModelAndView result(@RequestParam int x, @RequestParam int y) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("x", x);
-		mav.addObject("y", y);
-		mav.addObject("sum", x + y);
-		mav.setViewName("sum/result");
-		
-		return mav;
+	public String result(@RequestParam Map<String, String> map, ModelMap modelMap) {
+		modelMap.put("x", map.get("x"));
+		modelMap.put("y", map.get("y"));
+		return "sum/result";
 	}
+	
 }
