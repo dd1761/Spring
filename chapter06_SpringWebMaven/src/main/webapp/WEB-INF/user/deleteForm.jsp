@@ -9,7 +9,7 @@
 <body>
 <p>
 	삭제할 아이디 입력 : <input type="text" id="searchId" >
-	<input type="button" id="searchIdBtn" value="검색">
+	<input type="button" id="deleteBtn" value="삭제">
 </p>
 <div id="resultDiv"></div>
 

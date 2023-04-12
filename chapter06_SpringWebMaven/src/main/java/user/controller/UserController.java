@@ -84,6 +84,13 @@ public class UserController {
 		
 		return "user/deleteForm";
 	}
+	
+	@PostMapping(value="delete")
+	@ResponseBody
+	public void delete(@ModelAttribute String id) {
+		
+		userService.delete(id);
+	}
 }
 
 

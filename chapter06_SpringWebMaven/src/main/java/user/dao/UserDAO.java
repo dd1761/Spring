@@ -14,4 +14,6 @@ public interface UserDAO {
 
 	public void updateUser(UserDTO userDTO);
 
+	public void delete(String id);
+
 }

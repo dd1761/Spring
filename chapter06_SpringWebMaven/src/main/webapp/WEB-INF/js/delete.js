@@ -13,6 +13,8 @@ $('#searchId').focusout(function(){
 				if(data == 'exist') {
 					$('#resultDiv').text('삭제가능아이디입니다.');
 					$('#resultDiv').css('color', 'red');
+					
+					
 				}
 				else if(data == 'non_exist') {
 					$('#resultDiv').text('없는 아이디 입니다.');
@@ -25,4 +27,19 @@ $('#searchId').focusout(function(){
 			}
 		});
 	}
+	
+	$('#deleteBtn').click(function(){
+		$.ajax({
+			type:'post',
+			url: '/chapter06_SpringWebMaven/user/delete',
+			data: 'id=' + $('#searchId').val(),
+			success: function(data){
+				alert('삭제하였습니다.');
+				location.href='/chapter06_SpringWebMaven/user/list';
+			}, //success
+			error: function(err){
+				console.log(err);
+			}
+		}); //ajax
+	});
 });

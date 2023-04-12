@@ -40,5 +40,11 @@ public class UserDAOMyBatis implements UserDAO {
 		sqlSession.update("userSQL.update", userDTO);
 	}
 
+	@Override
+	public void delete(String id) {
+		
+		sqlSession.delete("userSQL.delete", id);
+	}
+
 	
 }
