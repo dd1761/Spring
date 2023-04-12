@@ -28,6 +28,13 @@ $(function(){
 						$('#name').val(data.name);
 						$('#id').val(data.id);
 						$('#pwd').val(data.pwd);
+						$('#resetBtn').prop('type','button');
+						
+						$('#resetBtn').click(function(){
+							$('#name').val(data.name);
+							$('#id').val(data.id);
+							$('#pwd').val(data.pwd);
+						});
 					}
 				},
 				error: function(err){
@@ -36,6 +43,32 @@ $(function(){
 			});	//ajax
 		} //else
 	}); //#searchIdBtn.click
+	
+	$('#updateBtn').click(function(){
+		if($('#name').val() == '') {
+			$('#nameDiv').text('이름을 입력해주세요');
+		}
+		else if($('#pwd').val() == '') {
+			$('#pwdDiv').text('비밀번호를 입력해주세요');
+		}
+		else {
+			$.ajax({
+				type: 'post',
+				url: '/chapter06_SpringWebMaven/user/updateUser',
+				data: $('#updateForm').serialize(),
+				success: function(data){
+					alert('업데이트 되었습니다.');
+					location.href='/chapter06_SpringWebMaven/user/list';
+				},
+				error: function(err){
+					console.log(err);
+				}
+				
+			});
+		}
+	});
+	
+
 	
 });
 

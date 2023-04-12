@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import user.bean.UserDTO;
 
 @Repository
-@Transactional
+@Transactional //sql문의 커밋과 클로즈를 대신 해줌
 public class UserDAOMyBatis implements UserDAO {
 	@Autowired
 	private SqlSession sqlSession;
@@ -32,6 +32,12 @@ public class UserDAOMyBatis implements UserDAO {
 	public UserDTO getUser(String id) {
 		
 		return sqlSession.selectOne("userSQL.getUser" , id);
+	}
+
+	@Override
+	public void updateUser(UserDTO userDTO) {
+		
+		sqlSession.update("userSQL.update", userDTO);
 	}
 
 	

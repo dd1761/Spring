@@ -13,5 +13,7 @@ public interface UserService {
 	public String isExistId(String id);
 
 	public UserDTO getUser(String id);
+
+	public void updateUser(UserDTO userDTO);
 	
 }

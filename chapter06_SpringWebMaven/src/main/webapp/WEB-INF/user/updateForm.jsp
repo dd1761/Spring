@@ -35,7 +35,7 @@
 	        
 	        
 	        <input type="button" value="수정" id="updateBtn">
-	        <input type="reset" value="취소">
+	        <input type="reset" value="취소" id="resetBtn">
 	</form>
 </div>
 

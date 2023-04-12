@@ -12,4 +12,6 @@ public interface UserDAO {
 
 	public UserDTO getUser(String id);
 
+	public void updateUser(UserDTO userDTO);
+
 }
