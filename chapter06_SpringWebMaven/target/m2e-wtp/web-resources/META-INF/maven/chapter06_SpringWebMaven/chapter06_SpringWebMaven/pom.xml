@@ -81,6 +81,28 @@
 	    <version>1.2</version>
 	</dependency>
 	
+	<!-- JSON -->
+	<dependency>
+	    <groupId>net.sf.json-lib</groupId>
+	    <artifactId>json-lib</artifactId>
+	    <version>2.4</version>
+	    <classifier>jdk15</classifier>
+	</dependency>
+	
+	<!-- Jacson -->
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-core</artifactId>
+	    <version>2.14.1</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-databind</artifactId>
+	    <version>2.14.1</version>
+	</dependency>
+	
+	
 	<!-- Lombok -->
 	<dependency>
 	    <groupId>org.projectlombok</groupId>
