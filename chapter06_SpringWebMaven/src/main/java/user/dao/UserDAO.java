@@ -12,7 +12,7 @@ public interface UserDAO {
 
 	public UserDTO getUser(String id);
 
-	public void updateUser(UserDTO userDTO);
+	public void update(UserDTO userDTO);
 
 	public void delete(String id);
 

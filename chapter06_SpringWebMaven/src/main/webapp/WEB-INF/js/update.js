@@ -28,13 +28,7 @@ $(function(){
 						$('#name').val(data.name);
 						$('#id').val(data.id);
 						$('#pwd').val(data.pwd);
-						$('#resetBtn').prop('type','button');
 						
-						$('#resetBtn').click(function(){
-							$('#name').val(data.name);
-							$('#id').val(data.id);
-							$('#pwd').val(data.pwd);
-						});
 					}
 				},
 				error: function(err){
@@ -44,31 +38,46 @@ $(function(){
 		} //else
 	}); //#searchIdBtn.click
 	
-	$('#updateBtn').click(function(){
-		if($('#name').val() == '') {
-			$('#nameDiv').text('이름을 입력해주세요');
-		}
-		else if($('#pwd').val() == '') {
-			$('#pwdDiv').text('비밀번호를 입력해주세요');
-		}
-		else {
-			$.ajax({
-				type: 'post',
-				url: '/chapter06_SpringWebMaven/user/updateUser',
-				data: $('#updateForm').serialize(),
-				success: function(data){
-					alert('업데이트 되었습니다.');
-					location.href='/chapter06_SpringWebMaven/user/list';
-				},
-				error: function(err){
-					console.log(err);
-				}
-				
-			});
-		}
-	});
-	
+});
 
+//취소버튼
+$('#resetBtn').click(function(){
+	//강제 이벤트 발생 trigger
+	//취소버튼을 누르게 되면 검색버튼을 누른 것 같은 결과가 나오기를 바란다.
+	$('#searchBtn').trigger('click');
 	
 });
+
+
+//수정버튼
+$('#updateBtn').click(function(){
+	$('#nameDiv').empty();
+	$('#pwdDiv').empty();
+	
+	if($('#name').val() == '') {
+		$('#nameDiv').text('이름을 입력해주세요');
+		$('#name').focus();
+	}
+	else if($('#pwd').val() == '') {
+		$('#pwdDiv').text('비밀번호를 입력해주세요');
+		$('#pwd').focus();
+	}
+	else {
+		$.ajax({
+			type: 'post',
+			url: '/chapter06_SpringWebMaven/user/update',
+			data: $('#updateForm').serialize(),
+			success: function(data){
+				alert('업데이트 되었습니다.');
+				location.href='/chapter06_SpringWebMaven/user/list';
+			},
+			error: function(err){
+				console.log(err);
+			}
+			
+		});
+	}
+});
+
+
 

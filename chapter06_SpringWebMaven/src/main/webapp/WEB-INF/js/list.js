@@ -2,6 +2,7 @@ $(function(){
 	$.ajax({
 		type: 'post',
 		url: '/chapter06_SpringWebMaven/user/getUserList',
+		data: 'pg=' + $('#pg').val(),
 		dataType: 'json',
 		success: function(data){
 			console.log(JSON.stringify(data));

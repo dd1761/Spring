@@ -2,6 +2,8 @@ package user.controller;
 
 import java.util.List;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,7 +37,7 @@ public class UserController {
 	}
 	
 	@GetMapping(value="list")
-	public String list() {
+	public String list(@RequestParam String pg) {
 		//DB를 거치지 않고 바로 화면에 틀만 띄운다.
 		
 		return "user/list";
@@ -72,11 +74,11 @@ public class UserController {
 		return userService.getUser(id);
 	}
 	
-	@PostMapping(value="updateUser")
+	@PostMapping(value="update")
 	@ResponseBody
-	public void updateUser(@ModelAttribute UserDTO userDTO) {
+	public void update(@ModelAttribute UserDTO userDTO) {
 		
-		userService.updateUser(userDTO);
+		userService.update(userDTO);
 	}
 	
 	@GetMapping(value="deleteForm")
@@ -87,7 +89,7 @@ public class UserController {
 	
 	@PostMapping(value="delete")
 	@ResponseBody
-	public void delete(@ModelAttribute String id) {
+	public void delete(@RequestParam String id) {
 		
 		userService.delete(id);
 	}

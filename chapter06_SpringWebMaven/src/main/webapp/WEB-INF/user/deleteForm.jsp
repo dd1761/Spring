@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h3>
+	<a href="/chapter06_SpringWebMaven/">
+		<img src="../image/daram1.jpg" width="50" height="50">
+	</a>회원정보수정
+</h3>
 <p>
 	삭제할 아이디 입력 : <input type="text" id="searchId" >
 	<input type="button" id="deleteBtn" value="삭제">

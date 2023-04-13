@@ -35,7 +35,7 @@ public class UserDAOMyBatis implements UserDAO {
 	}
 
 	@Override
-	public void updateUser(UserDTO userDTO) {
+	public void update(UserDTO userDTO) {
 		
 		sqlSession.update("userSQL.update", userDTO);
 	}
