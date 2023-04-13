@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
 		
 		List<UserDTO> list = userDAO.getUserList(map);
 		
-		return null;
+		return list;
 	}
 
 
