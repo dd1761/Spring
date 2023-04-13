@@ -10,14 +10,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert> <!-- 넘어오는 데이터의 자료형-->
 	
 	<!--같은 이름을 찾아서 매핑을 한다.-->
-	<select id="getUserList" resultType="user.bean.UserDTO">
+	<select id="getUserList" parameterType="java.util.Map" resultType="user.bean.UserDTO">
 		select * from usertable
 	</select>
 	
-	<!-- 만약 UserDTO의 필드명과 오라클 컬럼명이 틀린 경우-->
-	<!-- <select id="getUserList" resultMap="userResult">
-		select * from usertable
-	</select> -->
+	
 	
 	<select id="getUser" parameterType="String" resultType="user">
 		select * from usertable where id=#{id}

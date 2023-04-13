@@ -1,6 +1,8 @@
 package user.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,9 +24,18 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public List<UserDTO> getUserList() {
+	public List<UserDTO> getUserList(String pg) {
 		
-		return userDAO.getUserList();
+		int endNum = Integer.parseInt(pg) * 3;
+		int startNum = endNum - 2;
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startNum", startNum);
+		map.put("endNum", endNum);
+		
+		List<UserDTO> list = userDAO.getUserList(map);
+		
+		return null;
 	}
 
 

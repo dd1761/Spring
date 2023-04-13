@@ -6,6 +6,7 @@ import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,20 +38,19 @@ public class UserController {
 	}
 	
 	@GetMapping(value="list")
-	public String list(@RequestParam String pg) {
+	public String list(@RequestParam(required = false, defaultValue = "1") String pg, Model model) {
 		//DB를 거치지 않고 바로 화면에 틀만 띄운다.
-		
+		model.addAttribute("pg", pg);
 		return "user/list";
 	}
 	
 	@PostMapping(value="getUserList")
 	@ResponseBody
-	public List<UserDTO> getUserList() {
-		
+	public List<UserDTO> getUserList(@RequestParam String pg) {
 //		List<UserDTO> list = userService.getUserList();
 //		return list
 		
-		return userService.getUserList();
+		return userService.getUserList(pg);
 	}
 	
 	@PostMapping(value="isExistId")
