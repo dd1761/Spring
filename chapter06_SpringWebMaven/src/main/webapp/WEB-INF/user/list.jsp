@@ -41,8 +41,8 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript" src="../js/list.js"></script>
 <script type="text/javascript">
-function boardPaging(pg){
-	
+function userPaging(pg){
+	location.href="/chapter06_SpringWebMaven/user/list?pg=" + pg;
 }
 </script>
 </body>

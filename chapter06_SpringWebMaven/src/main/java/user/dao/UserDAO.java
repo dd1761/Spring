@@ -17,4 +17,6 @@ public interface UserDAO {
 
 	public void delete(String id);
 
+	public int getTotalA();
+
 }

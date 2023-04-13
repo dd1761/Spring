@@ -7,6 +7,7 @@
 	
 	<!-- <bean id="userServiceImpl" class="user.service.UserServiceImpl"></bean> -->
 	
+	<context:component-scan base-package="user.bean" />
 	<context:component-scan base-package="user.dao" />
 	<context:component-scan base-package="user.service" />
 	

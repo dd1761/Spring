@@ -1,6 +1,7 @@
 package user.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
@@ -46,7 +47,7 @@ public class UserController {
 	
 	@PostMapping(value="getUserList")
 	@ResponseBody
-	public List<UserDTO> getUserList(@RequestParam String pg) {
+	public Map<String, Object> getUserList(@RequestParam String pg) {
 //		List<UserDTO> list = userService.getUserList();
 //		return list
 		

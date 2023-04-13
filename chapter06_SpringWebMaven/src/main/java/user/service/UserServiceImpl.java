@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import user.bean.UserDTO;
+import user.bean.UserPaging;
 import user.dao.UserDAO;
 
 @Service	//Service를 사용안할거면 root-context.xml에 가서 bean을 적용시켜줘야 함 
@@ -15,6 +16,8 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDAO userDAO;
 	
+	@Autowired
+	private UserPaging userPaging;
 	
 	@Override
 	public void write(UserDTO userDTO) {
@@ -24,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public List<UserDTO> getUserList(String pg) {
+	public Map<String, Object> getUserList(String pg) {
 		
 		int endNum = Integer.parseInt(pg) * 3;
 		int startNum = endNum - 2;
@@ -34,8 +37,23 @@ public class UserServiceImpl implements UserService {
 		map.put("endNum", endNum);
 		
 		List<UserDTO> list = userDAO.getUserList(map);
+		System.out.println(list);
 		
-		return list;
+		//페이징 처리 - 1페이지당 3개씩
+		int totalA = userDAO.getTotalA();
+		
+		userPaging.setCurrentPage(Integer.parseInt(pg));
+		userPaging.setPageBlock(3);
+		userPaging.setPageSize(3);
+		userPaging.setTotalA(totalA);
+		
+		userPaging.makePagingHTML();
+		
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		map2.put("list", list);
+		map2.put("userPaging", userPaging);
+		
+		return map2;
 	}
 
 
