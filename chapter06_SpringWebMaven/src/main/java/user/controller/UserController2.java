@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -167,7 +168,14 @@ public class UserController2 {
 			}
 	@GetMapping(value="uploadForm_AJax_list")
 	public String uploadForm_AJax_list() {
-					
+		//DB를 거치지 않고 바로 화면에 틀만 띄움
 		return "user/uploadForm_AJax_list";
-	}		
+	}
+	
+	@PostMapping(value="getUploadForm_AJax_list")
+	@ResponseBody
+	public List<UserImageDTO> getUploadForm_AJax_list() {
+		
+		return userService.getUploadForm_AJax_list();
+	}
 }

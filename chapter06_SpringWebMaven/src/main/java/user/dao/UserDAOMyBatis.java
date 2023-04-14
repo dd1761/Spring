@@ -1,5 +1,6 @@
 package user.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -61,6 +62,18 @@ public class UserDAOMyBatis implements UserDAO {
 			sqlSession.insert("userSQL.upload", userImageDTO);
 		} //for
 	}
+
+	@Override
+	public List<UserImageDTO> getUploadForm_AJax_list() {
+		
+		return sqlSession.selectList("userSQL.getImageList");
+	}
+
+
+
+	
+
+	
 
 	
 }

@@ -22,4 +22,12 @@ public interface UserDAO {
 
 	public void upload(UserImageDTO userImageDTO, List<String> fileNameList);
 
+	public List<UserImageDTO> getUploadForm_AJax_list();
+
+	
+
+	
+	
+	
+
 }

@@ -1,5 +1,6 @@
 package user.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -99,5 +100,22 @@ public class UserServiceImpl implements UserService {
 		userDAO.upload(userImageDTO, fileNameList);
 		
 	}
+
+
+	@Override
+	public List<UserImageDTO> getUploadForm_AJax_list() {
+		List<UserImageDTO> list = userDAO.getUploadForm_AJax_list();
+		
+		return list;
+	}
+
+
+	
+
+
+
+
+
+	
 	
 }

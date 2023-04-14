@@ -18,6 +18,31 @@ $('#uploadBtn').click(function(){
 	});
 });
 
+$(function(){
+	var reader = new FileReader();
+	$.ajax({
+		type: 'post',
+		url: '/chapter06_SpringWebMaven/user/getUploadForm_AJax_list',
+		success: function(data){
+			alert('gd');
+			$.each(data, function(index, items){
+				$('<tr/>').append($('<td/>', {
+					align: 'center',
+					text: items.seq
+				})).append($('<img/>', {
+					align: 'center',
+					src: items.image1
+				})).append($('<td/>', {
+					align: 'center',
+					text: items.imageName
+				})).appendTo($('#userImageListTable'));
+			}); //each
+		},
+		error: function(){
+			console.log(err);
+		}
+	});
+});
 
 /*
 processData

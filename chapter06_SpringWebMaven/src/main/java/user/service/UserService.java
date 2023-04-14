@@ -21,6 +21,14 @@ public interface UserService {
 	public void delete(String id);
 
 	public void upload(UserImageDTO userImageDTO, List<String> fileNameList);
+
+	public List<UserImageDTO> getUploadForm_AJax_list();
+
+	
+
+	
+
+	
 	
 	
 }

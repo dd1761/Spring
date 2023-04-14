@@ -9,4 +9,5 @@ public class UserImageDTO {
 	private String imageName;
 	private String imageContent;
 	private String image1;
+	private int seq;
 }
