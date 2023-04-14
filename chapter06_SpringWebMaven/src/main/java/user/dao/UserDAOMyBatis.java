@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import user.bean.UserDTO;
+import user.bean.UserImageDTO;
 
 @Repository
 @Transactional //sql문의 커밋과 클로즈를 대신 해줌
@@ -51,6 +52,14 @@ public class UserDAOMyBatis implements UserDAO {
 	public int getTotalA() {
 		
 		return sqlSession.selectOne("userSQL.getTotalA");
+	}
+
+	@Override
+	public void upload(UserImageDTO userImageDTO, List<String> fileNameList) {
+		for(String fileName : fileNameList) {
+			userImageDTO.setImage1(fileName);
+			sqlSession.insert("userSQL.upload", userImageDTO);
+		} //for
 	}
 
 	

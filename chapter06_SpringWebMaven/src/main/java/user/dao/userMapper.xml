@@ -68,5 +68,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT count(*) from usertable
 	</select>
 	
+	<insert id="upload" parameterType="user.bean.UserImageDTO">
+		insert into userImage values(seq_userimage.nextval, #{imageName}, #{imageContent}, #{image1})
+	</insert>
 	
 </mapper>
