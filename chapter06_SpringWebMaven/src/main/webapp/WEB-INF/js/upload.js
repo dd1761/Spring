@@ -29,10 +29,14 @@ $(function(){
 				$('<tr/>').append($('<td/>', {
 					align: 'center',
 					text: items.seq
-				})).append($('<img/>', {
-					align: 'center',
-					src: items.image1
 				})).append($('<td/>', {
+					align: 'center',
+					//text: items.image1 //이미지는 실제 폴더에 들어있다. 
+									  // 이미지의 주소는 가상폴더를 적어주어야 한다.
+				}).append($('<img/>',{
+					src: '../storage/' + items.image1,
+					style: 'width:70px; height:70px;'
+				}))).append($('<td/>', {
 					align: 'center',
 					text: items.imageName
 				})).appendTo($('#userImageListTable'));

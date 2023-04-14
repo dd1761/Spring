@@ -66,7 +66,7 @@ public class UserDAOMyBatis implements UserDAO {
 	@Override
 	public List<UserImageDTO> getUploadForm_AJax_list() {
 		
-		return sqlSession.selectList("userSQL.getImageList");
+		return sqlSession.selectList("userSQL.getUploadForm_AJax_list");
 	}
 
 

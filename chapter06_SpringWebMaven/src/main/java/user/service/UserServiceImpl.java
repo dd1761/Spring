@@ -104,9 +104,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<UserImageDTO> getUploadForm_AJax_list() {
-		List<UserImageDTO> list = userDAO.getUploadForm_AJax_list();
+		return userDAO.getUploadForm_AJax_list();
 		
-		return list;
 	}
 
 

@@ -68,12 +68,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT count(*) from usertable
 	</select>
 	
+	<!-- 업로드 목록 -->
 	<insert id="upload" parameterType="user.bean.UserImageDTO">
 		insert into userImage values(seq_userimage.nextval, #{imageName}, #{imageContent}, #{image1})
 	</insert>
 	
-	<select id="getImageList" resultType="user.bean.UserImageDTO">
-		select * from userimage
+	<!-- 업로드 목록 -->
+	<select id="getUploadForm_AJax_list" resultType="user.bean.UserImageDTO">
+		select * from userimage order by seq desc
 	</select>
 	
 </mapper>

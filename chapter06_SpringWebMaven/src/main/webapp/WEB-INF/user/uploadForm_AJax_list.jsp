@@ -24,6 +24,5 @@
 </table>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript" src="../js/upload.js"></script>
-</script>
 </body>
 </html>
