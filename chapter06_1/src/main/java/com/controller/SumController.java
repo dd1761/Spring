@@ -27,22 +27,22 @@ public class SumController {
 		// /sum/input
 	}
 	
-	//@RequestMapping(value="/result.do", method=RequestMethod.POST)
+//	@RequestMapping(value="/result.do", method=RequestMethod.POST)
 //	@PostMapping(value="/result.do")
 //	public String result() {
 //	
 //		return "sum/result";
 //	}
 	
-//	@PostMapping(value="/result.do")
-//	public ModelAndView result(@RequestParam int x, @RequestParam int y) {
-//		ModelAndView mav = new ModelAndView();
-//		mav.addObject("x", x);
-//		mav.addObject("y", y);
-//		mav.setViewName("sum/result");
-//		
-//		return mav;
-//	}
+	@PostMapping(value="/result.do")
+	public ModelAndView result(@RequestParam int x, @RequestParam int y) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("x", x);
+		mav.addObject("y", y);
+		mav.setViewName("sum/result");
+		
+		return mav;
+	}
 											//데이터를 받아오는 과정에서 데이터를 못받아오면 400에러가 난다.
 //	@PostMapping(value="/result.do")		//required는 400 에러를 방지하기 위해서 사용 
 //	public ModelAndView result(@RequestParam(required = false, defaultValue = "0") String x,
