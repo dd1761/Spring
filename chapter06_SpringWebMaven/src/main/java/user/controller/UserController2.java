@@ -160,6 +160,7 @@ public class UserController2 {
 					fileNameList.add(fileName);
 					
 					
+					
 				} //for
 				
 				userService.upload(userImageDTO, fileNameList);
