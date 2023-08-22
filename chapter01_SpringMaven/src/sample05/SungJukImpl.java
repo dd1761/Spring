@@ -10,6 +10,7 @@ public class SungJukImpl implements SungJuk {
 	private String name;
 	private double tot, avg;
 
+	//성적
 	Scanner scanner = new Scanner(System.in);
 
 	public SungJukImpl() {
